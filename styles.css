@@ -29,9 +29,11 @@ h1 {
 }
 
 .link img {
-    width: 200px;
-    height: 92px;
+    width: auto; /* Allow the width to scale proportionally */
+    height: 92px; /* Set the desired height */
+    max-width: 200px; /* Ensure it doesn't get too wide */
     transition: transform 0.3s;
+    object-fit: contain; /* Ensure it fits within the defined dimensions */
 }
 
 .link img:hover {
