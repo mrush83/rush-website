@@ -7,7 +7,11 @@ document.querySelector('.dark-mode-toggle').addEventListener('click', () => {
 const infoBtn = document.querySelector('.info-btn');
 const contactSidebar = document.querySelector('.contact-sidebar');
 infoBtn.addEventListener('click', () => {
-    contactSidebar.classList.toggle('active');
+    if (contactSidebar.style.right === '0px') {
+        contactSidebar.style.right = '-300px'; // Hide the sidebar
+    } else {
+        contactSidebar.style.right = '0'; // Show the sidebar
+    }
 });
 
 // Chat Interactivity (Basic Setup)
