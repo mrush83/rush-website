@@ -127,3 +127,32 @@ h1 {
     cursor: pointer;
     z-index: 1000;
 }
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    .contact-box {
+        width: 90%; /* Make the contact box take up 90% of the screen width */
+        right: 5%; /* Center it by adjusting the right margin */
+        bottom: 10px; /* Keep it at the bottom */
+    }
+
+    .links-section {
+        flex-direction: column; /* Stack the links vertically on smaller screens */
+        align-items: center; /* Center the links */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-box {
+        width: 100%; /* Make the contact box full width */
+        right: 0; /* Align it with the right edge */
+        bottom: 0; /* Keep it at the bottom */
+        border-radius: 0; /* Remove rounded corners for a cleaner look */
+    }
+
+    .links-section {
+        flex-direction: column; /* Ensure links are stacked */
+        align-items: center; /* Center the links */
+        padding-bottom: 120px; /* Add padding to prevent overlap with the contact box */
+    }
+}
