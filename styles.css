@@ -40,19 +40,6 @@ h1 {
     transform: scale(1.1);
 }
 
-.info-btn {
-    position: fixed;
-    right: 20px;
-    top: 20px;
-    padding: 50px;
-    background-color: #444;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 1000; /* Make sure the button is on top */
-}
-
 .contact-box {
     position: fixed;
     bottom: 10px; /* Position it 10px from the bottom */
@@ -94,10 +81,9 @@ h1 {
     color: #ccc;
 }
 
-
 .chat-window {
     position: fixed;
-    bottom: 10px;
+    bottom: 80px; /* Prevent overlap with contact-box */
     right: 10px;
     width: 300px;
     background-color: #222;
@@ -118,6 +104,8 @@ h1 {
     border: none;
     border-radius: 5px;
     margin-bottom: 5px;
+    background-color: #444;
+    color: white;
 }
 
 .chat-send {
@@ -132,4 +120,10 @@ h1 {
     position: fixed;
     top: 10px;
     left: 10px;
+    background-color: #444;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
 }
