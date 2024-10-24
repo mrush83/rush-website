@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Welcome to My Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <h1>Hello, World!</h1>
-    <p>Welcome to my awesome website hosted on GitHub Pages!</p>
+<body class="dark-mode">
+
+    <!-- Title Section -->
+    <header>
+        <h1>Your Big Bold Title</h1>
+    </header>
+
+    <!-- Content Section -->
+    <main>
+        <section class="text-section">
+            <p>Your text content goes here...</p>
+        </section>
+
+        <!-- Links Section -->
+        <section class="links-section">
+            <a href="#" class="link">
+                <img src="image1.jpg" alt="Link Image 1">
+            </a>
+            <a href="#" class="link">
+                <img src="image2.jpg" alt="Link Image 2">
+            </a>
+            <!-- Add more links as needed -->
+        </section>
+    </main>
+
+    <!-- Info Button -->
+    <button class="info-btn">i</button>
+    
+    <!-- Contact Form Sidebar -->
+    <div class="contact-sidebar">
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <!-- Live Chat Section -->
+    <div class="chat-window">
+        <div class="chat-messages">
+            <!-- Chat messages will appear here -->
+        </div>
+        <input type="text" class="chat-input" placeholder="Type your message...">
+        <button class="chat-send">Send</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
