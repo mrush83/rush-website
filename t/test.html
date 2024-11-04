@@ -65,24 +65,24 @@
   }
 
   /* Health Point Markers */
-  .marker-50 { bottom: 50%; }
-  .marker-40 { bottom: 40%; }
-  .marker-30 { bottom: 30%; }
-  .marker-20 { bottom: 20%; }
-  .marker-10 { bottom: 10%; }
+  .marker-50 { bottom: calc(50 / 60 * 100%); }
+  .marker-40 { bottom: calc(40 / 60 * 100%); }
+  .marker-30 { bottom: calc(30 / 60 * 100%); }
+  .marker-20 { bottom: calc(20 / 60 * 100%); }
+  .marker-10 { bottom: calc(10 / 60 * 100%); }
 
   /* Lines */
-  .line-50 { bottom: 50%; }
-  .line-40 { bottom: 40%; }
-  .line-30 { bottom: 30%; }
-  .line-20 { bottom: 20%; }
-  .line-10 { bottom: 10%; }
+  .line-50 { bottom: calc(50 / 60 * 100%); }
+  .line-40 { bottom: calc(40 / 60 * 100%); }
+  .line-30 { bottom: calc(30 / 60 * 100%); }
+  .line-20 { bottom: calc(20 / 60 * 100%); }
+  .line-10 { bottom: calc(10 / 60 * 100%); }
 
-  .dotted-line-45 { bottom: 45%; }
-  .dotted-line-35 { bottom: 35%; }
-  .dotted-line-25 { bottom: 25%; }
-  .dotted-line-15 { bottom: 15%; }
-  .dotted-line-5 { bottom: 5%; }
+  .dotted-line-45 { bottom: calc(45 / 60 * 100%); }
+  .dotted-line-35 { bottom: calc(35 / 60 * 100%); }
+  .dotted-line-25 { bottom: calc(25 / 60 * 100%); }
+  .dotted-line-15 { bottom: calc(15 / 60 * 100%); }
+  .dotted-line-5 { bottom: calc(5 / 60 * 100%); }
 
   .button-container {
     margin-top: 20px;
@@ -101,7 +101,7 @@
 <h2>Health Points</h2>
 <div class="thermometer-container">
   <div class="thermometer-label full-label">Full</div>
-  <div class="thermometer-fill" id="thermometer-fill" style="height: 50%;"></div>
+  <div class="thermometer-fill" id="thermometer-fill" style="height: 100%;"></div>
   <div class="thermometer-label dead-label">Dead</div>
   
   <!-- Solid Lines with Labels -->
@@ -132,13 +132,13 @@
 </div>
 
 <script>
-  let health = 50; // Initial health
+  let health = 60; // Start at max health, which is "Full"
   const maxHealth = 60;
   const minHealth = 0;
 
   function updateThermometer() {
     const fill = document.getElementById('thermometer-fill');
-    fill.style.height = (health / maxHealth * 60) + '%';
+    fill.style.height = (health / maxHealth * 100) + '%';
   }
 
   function adjustHealth(amount) {
