@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Points Thermometer</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .thermometer-container {
+    display: inline-block;
+    width: 100px;
+    height: 300px;
+    background: #ddd;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .thermometer-fill {
+    width: 100%;
+    background: red;
+    position: absolute;
+    bottom: 0;
+    transition: height 0.3s;
+  }
+
+  .thermometer-label {
+    position: absolute;
+    left: 5px;
+    color: black;
+    font-weight: bold;
+  }
+
+  .full-label {
+    top: 10px;
+  }
+
+  .dead-label {
+    bottom: 10px;
+  }
+
+  .line {
+    position: absolute;
+    width: 100%;
+    border-bottom: 2px solid black;
+  }
+
+  .dotted-line {
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px dotted black;
+  }
+
+  .marker {
+    position: absolute;
+    left: 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+
+  /* Health Point Markers */
+  .marker-50 { bottom: calc(50 / 60 * 100%); }
+  .marker-40 { bottom: calc(40 / 60 * 100%); }
+  .marker-30 { bottom: calc(30 / 60 * 100%); }
+  .marker-20 { bottom: calc(20 / 60 * 100%); }
+  .marker-10 { bottom: calc(10 / 60 * 100%); }
+
+  /* Lines */
+  .line-50 { bottom: calc(50 / 60 * 100%); }
+  .line-40 { bottom: calc(40 / 60 * 100%); }
+  .line-30 { bottom: calc(30 / 60 * 100%); }
+  .line-20 { bottom: calc(20 / 60 * 100%); }
+  .line-10 { bottom: calc(10 / 60 * 100%); }
+
+  .dotted-line-45 { bottom: calc(45 / 60 * 100%); }
+  .dotted-line-35 { bottom: calc(35 / 60 * 100%); }
+  .dotted-line-25 { bottom: calc(25 / 60 * 100%); }
+  .dotted-line-15 { bottom: calc(15 / 60 * 100%); }
+  .dotted-line-5 { bottom: calc(5 / 60 * 100%); }
+
+  .button-container {
+    margin-top: 20px;
+  }
+
+  .button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h2>Health Points</h2>
+<div class="thermometer-container">
+  <div class="thermometer-label full-label">Full</div>
+  <div class="thermometer-fill" id="thermometer-fill" style="height: 100%;"></div>
+  <div class="thermometer-label dead-label">Dead</div>
+  
+  <!-- Solid Lines with Labels -->
+  <div class="line line-50"></div>
+  <div class="line line-40"></div>
+  <div class="line line-30"></div>
+  <div class="line line-20"></div>
+  <div class="line line-10"></div>
+  
+  <!-- Dotted Lines -->
+  <div class="dotted-line dotted-line-45"></div>
+  <div class="dotted-line dotted-line-35"></div>
+  <div class="dotted-line dotted-line-25"></div>
+  <div class="dotted-line dotted-line-15"></div>
+  <div class="dotted-line dotted-line-5"></div>
+  
+  <!-- Markers -->
+  <div class="marker marker-50">50</div>
+  <div class="marker marker-40">40</div>
+  <div class="marker marker-30">30</div>
+  <div class="marker marker-20">20</div>
+  <div class="marker marker-10">10</div>
+</div>
+
+<div class="button-container">
+  <button class="button" onclick="adjustHealth(5)">+</button>
+  <button class="button" onclick="adjustHealth(-5)">-</button>
+</div>
+
+<script>
+  let health = 60; // Start at max health, which is "Full"
+  const maxHealth = 60;
+  const minHealth = 0;
+
+  function updateThermometer() {
+    const fill = document.getElementById('thermometer-fill');
+    fill.style.height = (health / maxHealth * 100) + '%';
+  }
+
+  function adjustHealth(amount) {
+    health = Math.max(minHealth, Math.min(maxHealth, health + amount));
+    updateThermometer();
+  }
+
+  updateThermometer(); // Initial update
+</script>
+
+</body>
+</html>
