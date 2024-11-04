@@ -1,0 +1,2 @@
+KEGGAR
+When your remaining health is 20HP or less, you receive +2 attack against monsters.

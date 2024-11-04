@@ -1,0 +1,2 @@
+INTOXICA
+Once during the game, if your HP hits zero, you may roll the die. If you roll an even number, you do not die and instead refill your cup to the 10HP mark.

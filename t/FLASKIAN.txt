@@ -1,0 +1,2 @@
+FLASKIAN
+When you disarm a trap, successfully or unsuccessfully, you may pick it up and place it in a different unoccupied room of the dungeon.

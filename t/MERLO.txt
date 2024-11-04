@@ -1,0 +1,3 @@
+MERLO
+Once during the game, on your turn, you may teleport back to the Starting Point no matter where you are in
+the dungeon.
