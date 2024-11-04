@@ -11,12 +11,12 @@ body {
 }
 
 h1 {
-  font-size: 5vw; /* Dynamically sized title */
+  font-size: 3vw; /* Dynamically sized title */
   margin-top: 20px;
 }
 
 h2 {
-  font-size: 3vw; /* Dynamically sized subtitle */
+  font-size: 1vw; /* Dynamically sized subtitle */
   margin-top: 10px;
 }
 
@@ -27,10 +27,20 @@ h2 {
   margin-top: 40px;
 }
 
-.image-container img {
-  max-width: 100%;
-  height: auto;
-  margin: 10px;
+.character {
+  margin: 20px;
+  max-width: 300px;
+}
+
+.character img {
+  width: 50%;
+  height: 50%;
+}
+
+.description {
+  margin-top: 5px;
+  font-size: 1em;
+  white-space: pre-line; /* Preserve line breaks */
 }
 
 </style>
@@ -41,9 +51,64 @@ h2 {
 <h2>(Base Game)</h2>
 
 <div class="image-container">
-  <img src="https://github.com/mrush83/rush-website/blob/main/images/Absinthia.png" alt="Absinthia">
-  <!-- Add more images as needed -->
-</div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Absinthia.png" alt="Absinthia">
+    <div class="description">
+      <strong>ABSINTHIA</strong><br>
+      Between turns, you may swap one of your Power-Ups
+      with a Power-Up that has been dropped in the dungeon.
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Flaskian.png" alt="Flaskian">
+    <div class="description">
+      <strong>FLASKIAN</strong><br>
+      When you disarm a trap, successfully or unsuccessfully,
+      you may pick it up and place it in a different
+      unoccupied room of the dungeon.
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Intoxica.png" alt="Intoxica">
+    <div class="description">
+      <strong>INTOXICA</strong><br>
+      Once during the game, if your HP hits zero,
+      you may roll the die. If you roll an even number,
+      you do not die and instead refill your cup to the 10HP mark.
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Keggar.png" alt="Keggar">
+    <div class="description">
+      <strong>KEGGAR</strong><br>
+      When your remaining health is 20HP or less,
+      you receive +2 attack against monsters.
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Merlo.png" alt="Merlo">
+    <div class="description">
+      <strong>MERLO</strong><br>
+      Once during the game, on your turn,
+      you may teleport back to the Starting Point
+      no matter where you are in the dungeon.
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Sir-Drankalot.png" alt="Sir Drankalot">
+    <div class="description">
+      <strong>SIR DRANKALOT</strong><br>
+      +2 attack in duels, as long as you yell "Huzzah!" before you roll.
+    </div>
+  </div>
+
+</div> <!-- Closing tag for image-container -->
 
 </body>
 </html>
