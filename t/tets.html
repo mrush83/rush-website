@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Points Thermometer</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 20px;
+  }
 
+  .thermometer-container {
+    display: inline-block;
+    width: 100px;
+    height: 300px;
+    background: #ddd;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .thermometer-fill {
+    width: 100%;
+    background: red;
+    position: absolute;
+    bottom: 0;
+    transition: height 0.3s;
+  }
+
+  .thermometer-label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: white;
+    font-weight: bold;
+  }
+
+  .full-label {
+    top: 10px;
+    color: black;
+  }
+
+  .dead-label {
+    bottom: 10px;
+    color: black;
+  }
+
+  .button-container {
+    margin-top: 20px;
+  }
+
+  .button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h2>Health Points</h2>
+<div class="thermometer-container">
+  <div class="thermometer-label full-label">Full</div>
+  <div class="thermometer-fill" id="thermometer-fill" style="height: 50%;"></div>
+  <div class="thermometer-label dead-label">Dead</div>
+</div>
+
+<div class="button-container">
+  <button class="button" onclick="adjustHealth(5)">+</button>
+  <button class="button" onclick="adjustHealth(-5)">-</button>
+</div>
+
+<script>
+  let health = 50; // Initial health
+  const maxHealth = 100;
+  const minHealth = 0;
+
+  function updateThermometer() {
+    const fill = document.getElementById('thermometer-fill');
+    fill.style.height = (health / maxHealth * 100) + '%';
+  }
+
+  function adjustHealth(amount) {
+    health = Math.max(minHealth, Math.min(maxHealth, health + amount));
+    updateThermometer();
+  }
+
+  updateThermometer(); // Initial update
+</script>
+
+</body>
+</html>
