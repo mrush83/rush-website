@@ -23,23 +23,24 @@ h2 {
 .image-container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Prevent wrapping to keep all characters in one row */
   margin-top: 40px;
+  overflow-x: auto; /* Allow horizontal scrolling if necessary */
 }
 
 .character {
   margin: 20px;
-  max-width: 50%; /* Max image width: max-width: 100px; */
+  max-width: 200px; /* Set a fixed width for each character */
 }
 
 .character img {
-  width: 50%; /* Max image width */
-  height: 50%; /* Max image height */
+  width: 100%; /* Adjust to full width of character container */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .description {
   margin-top: 5px;
-  font-size: 1em;
+  font-size: 0.9em; /* Slightly smaller font size for better fit */
   white-space: pre-line; /* Preserve line breaks */
 }
 
@@ -47,7 +48,7 @@ h2 {
   display: inline-block;
   width: 100px;
   height: 200px;
-  background: #ddd;
+  background: #000; /* Match background color */
   border-radius: 10px;
   position: relative;
   overflow: hidden;
@@ -56,8 +57,7 @@ h2 {
 
 .thermometer-fill {
   width: 100%;
-  /* background: red; */
-  background: rgba(0, 128, 0, 0.6);
+  background: red; /* Change to red for HP fill */
   position: absolute;
   bottom: 0;
   transition: height 0.3s;
