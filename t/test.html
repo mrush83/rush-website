@@ -52,7 +52,7 @@ h2 {
   border-radius: 10px;
   position: relative;
   overflow: hidden;
-  margin-top: 1px; /* 10 ------------------------------------------------------------------------------------------------ */
+  margin-top: 10px; /* 10 ------------------------------------------------------------------------------------------------ */
 }
 
 .thermometer-fill {
@@ -74,11 +74,15 @@ h2 {
 }
 
 .full-label {
-  top: 10px;
+  top: 1px;
+  z-index: 4; /* Higher stacking order to appear above the fill */
+  /* top: 10px; ------------------------------------------------------------------------------------------------ */
 }
 
 .dead-label {
-  bottom: 10px;
+  bottom: 20px;
+  z-index: 4; /* Higher stacking order to appear above the fill */
+  /* bottom: 10px; ------------------------------------------------------------------------------------------------ */
 }
 
 .line {
