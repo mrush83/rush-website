@@ -80,18 +80,18 @@ h2 {
   bottom: 10px;
 }
 
-.line, .dotted-line {
+.line {
   position: absolute;
   width: 100%;
+  border-bottom: 2px solid white;
   z-index: 2; /* Higher stacking order to appear above the fill */
 }
 
-.line {
-  border-bottom: 2px solid white;
-}
-
 .dotted-line {
+  position: absolute;
+  width: 100%;
   border-bottom: 1px dotted white;
+  z-index: 3; /* Higher stacking order to appear above the fill */
 }
 
 .marker {
@@ -140,7 +140,7 @@ h2 {
 <h2>(Base Game)</h2>
 
 <div class="image-container">
-  <!-- Repeat the character block for each character -->
+
   <div class="character">
     <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Absinthia.png" alt="Absinthia">
     <div class="description">
@@ -175,8 +175,178 @@ h2 {
     </div>
   </div>
 
-  <!-- Add more characters similarly, ensuring to include dotted lines within each thermometer-container -->
-  
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Flaskian.png" alt="Flaskian">
+    <div class="description">
+      <strong>FLASKIAN</strong><br>
+      When you disarm a trap, successfully or unsuccessfully,
+      you may pick it up and place it in a different
+      unoccupied room of the dungeon.
+    </div>
+    <h2>Health Points</h2>
+    <div class="thermometer-container">
+      <div class="thermometer-label full-label">Full</div>
+      <div class="thermometer-fill" id="thermometer-fill-2" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line line-50"></div>
+      <div class="line line-40"></div>
+      <div class="line line-30"></div>
+      <div class="line line-20"></div>
+      <div class="line line-10"></div>
+      <div class="marker marker-50">50</div>
+      <div class="marker marker-40">40</div>
+      <div class="marker marker-30">30</div>
+      <div class="marker marker-20">20</div>
+      <div class="marker marker-10">10</div>
+      <div class="dotted-line dotted-line-45"></div>
+      <div class="dotted-line dotted-line-35"></div>
+      <div class="dotted-line dotted-line-25"></div>
+      <div class="dotted-line dotted-line-15"></div>
+      <div class="dotted-line dotted-line-5"></div>
+    </div>
+    <div class="button-container">
+      <button class="button" onclick="adjustHealth(5, 2)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 2)">-</button>
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Intoxica.png" alt="Intoxica">
+    <div class="description">
+      <strong>INTOXICA</strong><br>
+      Once during the game, if your HP hits zero,
+      you may roll the die. If you roll an even number,
+      you do not die and instead refill your cup to the 10HP mark.
+    </div>
+    <h2>Health Points</h2>
+    <div class="thermometer-container">
+      <div class="thermometer-label full-label">Full</div>
+      <div class="thermometer-fill" id="thermometer-fill-3" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line line-50"></div>
+      <div class="line line-40"></div>
+      <div class="line line-30"></div>
+      <div class="line line-20"></div>
+      <div class="line line-10"></div>
+      <div class="marker marker-50">50</div>
+      <div class="marker marker-40">40</div>
+      <div class="marker marker-30">30</div>
+      <div class="marker marker-20">20</div>
+      <div class="marker marker-10">10</div>
+      <div class="dotted-line dotted-line-45"></div>
+      <div class="dotted-line dotted-line-35"></div>
+      <div class="dotted-line dotted-line-25"></div>
+      <div class="dotted-line dotted-line-15"></div>
+      <div class="dotted-line dotted-line-5"></div>
+    </div>
+    <div class="button-container">
+      <button class="button" onclick="adjustHealth(5, 3)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 3)">-</button>
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Keggar.png" alt="Keggar">
+    <div class="description">
+      <strong>KEGGAR</strong><br>
+      When your remaining health is 20HP or less,
+      you receive +2 attack against monsters.
+    </div>
+    <h2>Health Points</h2>
+    <div class="thermometer-container">
+      <div class="thermometer-label full-label">Full</div>
+      <div class="thermometer-fill" id="thermometer-fill-4" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line line-50"></div>
+      <div class="line line-40"></div>
+      <div class="line line-30"></div>
+      <div class="line line-20"></div>
+      <div class="line line-10"></div>
+      <div class="marker marker-50">50</div>
+      <div class="marker marker-40">40</div>
+      <div class="marker marker-30">30</div>
+      <div class="marker marker-20">20</div>
+      <div class="marker marker-10">10</div>
+      <div class="dotted-line dotted-line-45"></div>
+      <div class="dotted-line dotted-line-35"></div>
+      <div class="dotted-line dotted-line-25"></div>
+      <div class="dotted-line dotted-line-15"></div>
+      <div class="dotted-line dotted-line-5"></div>
+    </div>
+    <div class="button-container">
+      <button class="button" onclick="adjustHealth(5, 4)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 4)">-</button>
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Merlo.png" alt="Merlo">
+    <div class="description">
+      <strong>MERLO</strong><br>
+      Once during the game, on your turn,
+      you may teleport back to the Starting Point
+      no matter where you are in the dungeon.
+    </div>
+    <h2>Health Points</h2>
+    <div class="thermometer-container">
+      <div class="thermometer-label full-label">Full</div>
+      <div class="thermometer-fill" id="thermometer-fill-5" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line line-50"></div>
+      <div class="line line-40"></div>
+      <div class="line line-30"></div>
+      <div class="line line-20"></div>
+      <div class="line line-10"></div>
+      <div class="marker marker-50">50</div>
+      <div class="marker marker-40">40</div>
+      <div class="marker marker-30">30</div>
+      <div class="marker marker-20">20</div>
+      <div class="marker marker-10">10</div>
+      <div class="dotted-line dotted-line-45"></div>
+      <div class="dotted-line dotted-line-35"></div>
+      <div class="dotted-line dotted-line-25"></div>
+      <div class="dotted-line dotted-line-15"></div>
+      <div class="dotted-line dotted-line-5"></div>
+    </div>
+    <div class="button-container">
+      <button class="button" onclick="adjustHealth(5, 5)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 5)">-</button>
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Sir-Drankalot.png" alt="Sir Drankalot">
+    <div class="description">
+      <strong>SIR DRANKALOT</strong><br>
+      +2 attack in duels, as long as you yell "Huzzah!" before you roll.
+    </div>
+    <h2>Health Points</h2>
+    <div class="thermometer-container">
+      <div class="thermometer-label full-label">Full</div>
+      <div class="thermometer-fill" id="thermometer-fill-6" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line line-50"></div>
+      <div class="line line-40"></div>
+      <div class="line line-30"></div>
+      <div class="line line-20"></div>
+      <div class="line line-10"></div>
+      <div class="marker marker-50">50</div>
+      <div class="marker marker-40">40</div>
+      <div class="marker marker-30">30</div>
+      <div class="marker marker-20">20</div>
+      <div class="marker marker-10">10</div>
+      <div class="dotted-line dotted-line-45"></div>
+      <div class="dotted-line dotted-line-35"></div>
+      <div class="dotted-line dotted-line-25"></div>
+      <div class="dotted-line dotted-line-15"></div>
+      <div class="dotted-line dotted-line-5"></div>
+    </div>
+    <div class="button-container">
+      <button class="button" onclick="adjustHealth(5, 6)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 6)">-</button>
+    </div>
+  </div>
+
 </div> <!-- Closing tag for image-container -->
 
 <script>
