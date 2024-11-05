@@ -54,7 +54,7 @@ h2 {
   border-radius: 10px;
   position: relative;
   overflow: hidden;
-  margin-top: 10px;
+  margin: 10px auto; /* Centering with auto margins */
 }
 
 .thermometer-fill {
@@ -68,6 +68,7 @@ h2 {
 .button-container {
   display: none; /* Initially hidden */
   margin-top: 10px;
+  text-align: center; /* Center buttons */
 }
 
 .button {
@@ -102,7 +103,92 @@ h2 {
     </div>
   </div>
 
-  <!-- Repeat similar structure for other characters -->
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Flaskian.png" alt="Flaskian" onclick="toggleHealth(2)">
+    <div class="description">
+      <strong>FLASKIAN</strong><br>
+      When you disarm a trap, successfully or unsuccessfully,
+      you may pick it up and place it in a different
+      unoccupied room of the dungeon.
+    </div>
+    <h2>Health Points</h2>
+    <div class="thermometer-container" id="thermometer-container-2">
+      <div class="thermometer-fill" id="thermometer-fill-2" style="height: 100%;"></div>
+    </div>
+    <div class="button-container" id="button-container-2">
+      <button class="button" onclick="adjustHealth(5, 2)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 2)">-</button>
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Intoxica.png" alt="Intoxica" onclick="toggleHealth(3)">
+    <div class="description">
+      <strong>INTOXICA</strong><br>
+      Once during the game, if your HP hits zero,
+      you may roll the die. If you roll an even number,
+      you do not die and instead refill your cup to the 10HP mark.
+    </div>
+    <h2>Health Points</h2>
+    <div class="thermometer-container" id="thermometer-container-3">
+      <div class="thermometer-fill" id="thermometer-fill-3" style="height: 100%;"></div>
+    </div>
+    <div class="button-container" id="button-container-3">
+      <button class="button" onclick="adjustHealth(5, 3)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 3)">-</button>
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Keggar.png" alt="Keggar" onclick="toggleHealth(4)">
+    <div class="description">
+      <strong>KEGGAR</strong><br>
+      When your remaining health is 20HP or less,
+      you receive +2 attack against monsters.
+    </div>
+    <h2>Health Points</h2>
+    <div class="thermometer-container" id="thermometer-container-4">
+      <div class="thermometer-fill" id="thermometer-fill-4" style="height: 100%;"></div>
+    </div>
+    <div class="button-container" id="button-container-4">
+      <button class="button" onclick="adjustHealth(5, 4)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 4)">-</button>
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Merlo.png" alt="Merlo" onclick="toggleHealth(5)">
+    <div class="description">
+      <strong>MERLO</strong><br>
+      Once during the game, on your turn,
+      you may teleport back to the Starting Point
+      no matter where you are in the dungeon.
+    </div>
+    <h2>Health Points</h2>
+    <div class="thermometer-container" id="thermometer-container-5">
+      <div class="thermometer-fill" id="thermometer-fill-5" style="height: 100%;"></div>
+    </div>
+    <div class="button-container" id="button-container-5">
+      <button class="button" onclick="adjustHealth(5, 5)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 5)">-</button>
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Sir-Drankalot.png" alt="Sir Drankalot" onclick="toggleHealth(6)">
+    <div class="description">
+      <strong>SIR DRANKALOT</strong><br>
+      +2 attack in duels, as long as you yell "Huzzah!" before you roll.
+    </div>
+    <h2>Health Points</h2>
+    <div class="thermometer-container" id="thermometer-container-6">
+      <div class="thermometer-fill" id="thermometer-fill-6" style="height: 100%;"></div>
+    </div>
+    <div class="button-container" id="button-container-6">
+      <button class="button" onclick="adjustHealth(5, 6)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 6)">-</button>
+    </div>
+  </div>
 
 </div> <!-- Closing tag for image-container -->
 
