@@ -23,92 +23,362 @@ h2 {
 .image-container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Prevent wrapping to keep all characters in one row */
   margin-top: 40px;
+  overflow-x: auto; /* Allow horizontal scrolling if necessary */
 }
 
 .character {
   margin: 20px;
-  max-width: 300px;
+  max-width: 200px; /* Set a fixed width for each character */
+  position: relative; /* To position health bars/buttons absolutely */
 }
 
 .character img {
-  width: 50%;
-  height: 50%;
+  width: 100%; /* Adjust to full width of character container */
+  height: auto; /* Maintain aspect ratio */
+  cursor: pointer; /* Indicate clickable image */
 }
 
 .description {
   margin-top: 5px;
-  font-size: 1em;
+  font-size: 0.9em; /* Slightly smaller font size for better fit */
   white-space: pre-line; /* Preserve line breaks */
 }
 
+.health-title {
+  display: none; /* Initially hidden */
+}
+
+.thermometer-container {
+  display: none; /* Initially hidden */
+  width: 100px;
+  height: 200px;
+  background: #000; /* Match background color */
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  margin: 10px auto; /* Centering with auto margins */
+}
+
+.thermometer-fill {
+  width: 100%;
+  background: red; /* Change to red for HP fill */
+  position: absolute;
+  bottom: 0;
+  transition: height 0.3s;
+}
+
+.thermometer-label {
+  position: absolute;
+  left: 5px;
+  color: white;
+  font-weight: bold;
+  z-index: 4; /* Higher stacking order to appear above the fill */
+}
+
+.full-label {
+  top: 1px;
+}
+
+.dead-label {
+  bottom: -2px;
+}
+
+.line {
+  position: absolute;
+  width: 100%;
+  border-bottom: 2px solid white;
+  z-index: 2; /* Higher stacking order to appear above the fill */
+}
+
+.dotted-line {
+  position: absolute;
+  width: 100%;
+  border-bottom: 2px dotted white;
+  z-index: 2; /* Higher stacking order to appear above the fill */
+}
+
+.marker {
+  position: absolute;
+  left: 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+  z-index: 3; /* Higher stacking order to appear above the fill */
+}
+
+.button-container {
+  display: none; /* Initially hidden */
+  margin-top: 10px;
+  text-align: center; /* Center buttons */
+}
+
+.button {
+  font-size: 1.2em;
+  padding: 5px 10px;
+  margin: 5px;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
 
 <h1>HEROES OF BARCARDIA CHARACTER SIGNATURE MOVES</h1>
-<h2>(Base Game)</h2>
+<h2>(Click character to show HP bars)</h2>
 
 <div class="image-container">
 
   <div class="character">
-    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Absinthia.png" alt="Absinthia">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Absinthia.png" alt="Absinthia" onclick="toggleHealth(1)">
     <div class="description">
       <strong>ABSINTHIA</strong><br>
       Between turns, you may swap one of your Power-Ups
       with a Power-Up that has been dropped in the dungeon.
     </div>
+    <div class="health-title" id="health-title-1">
+      <h2>Health Points</h2>
+    </div>
+    <div class="thermometer-container" id="thermometer-container-1">
+      <div class="thermometer-label full-label">Full</div>
+      <div class="thermometer-fill" id="thermometer-fill-1" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line" style="bottom: calc(50 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(40 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(30 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(20 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(10 / 60 * 100%);"></div>
+      <div class="marker" style="bottom: calc(50 / 60 * 100%);">50</div>
+      <div class="marker" style="bottom: calc(40 / 60 * 100%);">40</div>
+      <div class="marker" style="bottom: calc(30 / 60 * 100%);">30</div>
+      <div class="marker" style="bottom: calc(20 / 60 * 100%);">20</div>
+      <div class="marker" style="bottom: calc(10 / 60 * 100%);">10</div>
+      <div class="dotted-line" style="bottom: calc(45 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(35 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(25 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(15 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(5 / 60 * 100%);"></div>
+    </div>
+    <div class="button-container" id="button-container-1">
+      <button class="button" onclick="adjustHealth(5, 1)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 1)">-</button>
+    </div>
   </div>
 
   <div class="character">
-    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Flaskian.png" alt="Flaskian">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Flaskian.png" alt="Flaskian" onclick="toggleHealth(2)">
     <div class="description">
       <strong>FLASKIAN</strong><br>
       When you disarm a trap, successfully or unsuccessfully,
       you may pick it up and place it in a different
       unoccupied room of the dungeon.
     </div>
+    <div class="health-title" id="health-title-2">
+      <h2>Health Points</h2>
+    </div>
+    <div class="thermometer-container" id="thermometer-container-2">
+      <div class="thermometer-label full-label">Full</div>
+      <div class="thermometer-fill" id="thermometer-fill-2" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line" style="bottom: calc(50 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(40 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(30 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(20 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(10 / 60 * 100%);"></div>
+      <div class="marker" style="bottom: calc(50 / 60 * 100%);">50</div>
+      <div class="marker" style="bottom: calc(40 / 60 * 100%);">40</div>
+      <div class="marker" style="bottom: calc(30 / 60 * 100%);">30</div>
+      <div class="marker" style="bottom: calc(20 / 60 * 100%);">20</div>
+      <div class="marker" style="bottom: calc(10 / 60 * 100%);">10</div>
+      <div class="dotted-line" style="bottom: calc(45 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(35 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(25 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(15 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(5 / 60 * 100%);"></div>
+    </div>
+    <div class="button-container" id="button-container-2">
+      <button class="button" onclick="adjustHealth(5, 2)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 2)">-</button>
+    </div>
   </div>
 
   <div class="character">
-    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Intoxica.png" alt="Intoxica">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Intoxica.png" alt="Intoxica" onclick="toggleHealth(3)">
     <div class="description">
       <strong>INTOXICA</strong><br>
       Once during the game, if your HP hits zero,
       you may roll the die. If you roll an even number,
       you do not die and instead refill your cup to the 10HP mark.
     </div>
+    <div class="health-title" id="health-title-3">
+      <h2>Health Points</h2>
+    </div>
+    <div class="thermometer-container" id="thermometer-container-3">
+      <div class="thermometer-label full-label">Full</div>
+      <div class="thermometer-fill" id="thermometer-fill-3" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line" style="bottom: calc(50 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(40 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(30 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(20 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(10 / 60 * 100%);"></div>
+      <div class="marker" style="bottom: calc(50 / 60 * 100%);">50</div>
+      <div class="marker" style="bottom: calc(40 / 60 * 100%);">40</div>
+      <div class="marker" style="bottom: calc(30 / 60 * 100%);">30</div>
+      <div class="marker" style="bottom: calc(20 / 60 * 100%);">20</div>
+      <div class="marker" style="bottom: calc(10 / 60 * 100%);">10</div>
+      <div class="dotted-line" style="bottom: calc(45 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(35 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(25 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(15 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(5 / 60 * 100%);"></div>
+    </div>
+    <div class="button-container" id="button-container-3">
+      <button class="button" onclick="adjustHealth(5, 3)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 3)">-</button>
+    </div>
   </div>
 
   <div class="character">
-    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Keggar.png" alt="Keggar">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Keggar.png" alt="Keggar" onclick="toggleHealth(4)">
     <div class="description">
       <strong>KEGGAR</strong><br>
       When your remaining health is 20HP or less,
       you receive +2 attack against monsters.
     </div>
+    <div class="health-title" id="health-title-4">
+      <h2>Health Points</h2>
+    </div>
+    <div class="thermometer-container" id="thermometer-container-4">
+      <div class="thermometer-label full-label">Full</div>
+      <div class="thermometer-fill" id="thermometer-fill-4" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line" style="bottom: calc(50 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(40 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(30 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(20 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(10 / 60 * 100%);"></div>
+      <div class="marker" style="bottom: calc(50 / 60 * 100%);">50</div>
+      <div class="marker" style="bottom: calc(40 / 60 * 100%);">40</div>
+      <div class="marker" style="bottom: calc(30 / 60 * 100%);">30</div>
+      <div class="marker" style="bottom: calc(20 / 60 * 100%);">20</div>
+      <div class="marker" style="bottom: calc(10 / 60 * 100%);">10</div>
+      <div class="dotted-line" style="bottom: calc(45 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(35 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(25 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(15 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(5 / 60 * 100%);"></div>
+    </div>
+    <div class="button-container" id="button-container-4">
+      <button class="button" onclick="adjustHealth(5, 4)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 4)">-</button>
+    </div>
   </div>
 
   <div class="character">
-    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Merlo.png" alt="Merlo">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Merlo.png" alt="Merlo" onclick="toggleHealth(5)">
     <div class="description">
       <strong>MERLO</strong><br>
       Once during the game, on your turn,
       you may teleport back to the Starting Point
       no matter where you are in the dungeon.
     </div>
+    <div class="health-title" id="health-title-5">
+      <h2>Health Points</h2>
+    </div>
+    <div class="thermometer-container" id="thermometer-container-5">
+      <div class="thermometer-label full-label">Full</div>
+      <div class="thermometer-fill" id="thermometer-fill-5" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line" style="bottom: calc(50 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(40 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(30 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(20 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(10 / 60 * 100%);"></div>
+      <div class="marker" style="bottom: calc(50 / 60 * 100%);">50</div>
+      <div class="marker" style="bottom: calc(40 / 60 * 100%);">40</div>
+      <div class="marker" style="bottom: calc(30 / 60 * 100%);">30</div>
+      <div class="marker" style="bottom: calc(20 / 60 * 100%);">20</div>
+      <div class="marker" style="bottom: calc(10 / 60 * 100%);">10</div>
+      <div class="dotted-line" style="bottom: calc(45 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(35 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(25 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(15 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(5 / 60 * 100%);"></div>
+    </div>
+    <div class="button-container" id="button-container-5">
+      <button class="button" onclick="adjustHealth(5, 5)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 5)">-</button>
+    </div>
   </div>
 
   <div class="character">
-    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Sir-Drankalot.png" alt="Sir Drankalot">
+    <img src="https://raw.githubusercontent.com/mrush83/rush-website/main/images/Sir-Drankalot.png" alt="Sir Drankalot" onclick="toggleHealth(6)">
     <div class="description">
       <strong>SIR DRANKALOT</strong><br>
       +2 attack in duels, as long as you yell "Huzzah!" before you roll.
     </div>
+    <div class="health-title" id="health-title-6">
+      <h2>Health Points</h2>
+    </div>
+    <div class="thermometer-container" id="thermometer-container-6">
+      <div class="thermometer-label full-label">Full</div>
+      <div class="thermometer-fill" id="thermometer-fill-6" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line" style="bottom: calc(50 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(40 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(30 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(20 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(10 / 60 * 100%);"></div>
+      <div class="marker" style="bottom: calc(50 / 60 * 100%);">50</div>
+      <div class="marker" style="bottom: calc(40 / 60 * 100%);">40</div>
+      <div class="marker" style="bottom: calc(30 / 60 * 100%);">30</div>
+      <div class="marker" style="bottom: calc(20 / 60 * 100%);">20</div>
+      <div class="marker" style="bottom: calc(10 / 60 * 100%);">10</div>
+      <div class="dotted-line" style="bottom: calc(45 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(35 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(25 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(15 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(5 / 60 * 100%);"></div>
+    </div>
+    <div class="button-container" id="button-container-6">
+      <button class="button" onclick="adjustHealth(5, 6)">+</button>
+      <button class="button" onclick="adjustHealth(-5, 6)">-</button>
+    </div>
   </div>
 
 </div> <!-- Closing tag for image-container -->
+
+<script>
+  let health = [60, 60, 60, 60, 60, 60]; // Start at max health for all characters
+  const maxHealth = 60;
+  const minHealth = 0;
+
+  function updateThermometer(index) {
+    const fill = document.getElementById('thermometer-fill-' + index);
+    fill.style.height = (health[index - 1] / maxHealth * 100) + '%';
+  }
+
+  function adjustHealth(amount, index) {
+    health[index - 1] = Math.max(minHealth, Math.min(maxHealth, health[index - 1] + amount));
+    updateThermometer(index);
+  }
+
+  function toggleHealth(index) {
+    const thermometerContainer = document.getElementById('thermometer-container-' + index);
+    const buttonContainer = document.getElementById('button-container-' + index);
+    const healthTitle = document.getElementById('health-title-' + index);
+    
+    const isVisible = thermometerContainer.style.display === 'block';
+    
+    thermometerContainer.style.display = isVisible ? 'none' : 'block';
+    buttonContainer.style.display = isVisible ? 'none' : 'block';
+    healthTitle.style.display = isVisible ? 'none' : 'block'; // Toggle health title visibility
+  }
+
+  for (let i = 1; i <= health.length; i++) {
+    updateThermometer(i); // Initial update for all characters
+  }
+</script>
 
 </body>
 </html>
