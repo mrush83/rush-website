@@ -69,7 +69,7 @@ h2 {
   left: 5px;
   color: white;
   font-weight: bold;
-  z-index: 2; /* Higher stacking order to appear above the fill */
+  z-index: 3; /* Higher stacking order to appear above the fill */
 
 }
 
@@ -84,13 +84,15 @@ h2 {
 .line {
   position: absolute;
   width: 100%;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
+  z-index: 2; /* Higher stacking order to appear above the fill */
 }
 
 .dotted-line {
   position: absolute;
   width: 100%;
-  border-bottom: 1px dotted black;
+  border-bottom: 1px dotted white;
+  z-index: 2; /* Higher stacking order to appear above the fill */
 }
 
 .marker {
@@ -98,6 +100,7 @@ h2 {
   left: 10px;
   font-size: 0.8em;
   font-weight: bold;
+  z-index: 3; /* Higher stacking order to appear above the fill */
 }
 
 /* Health Point Markers */
