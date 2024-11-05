@@ -61,6 +61,7 @@ h2 {
   position: absolute;
   bottom: 0;
   transition: height 0.3s;
+  z-index: 1; /* Lower stacking order */
 }
 
 .thermometer-label {
@@ -68,6 +69,8 @@ h2 {
   left: 5px;
   color: white;
   font-weight: bold;
+  z-index: 2; /* Higher stacking order to appear above the fill */
+
 }
 
 .full-label {
