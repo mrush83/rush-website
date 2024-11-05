@@ -65,6 +65,44 @@ h2 {
   transition: height 0.3s;
 }
 
+.thermometer-label {
+  position: absolute;
+  left: 5px;
+  color: white;
+  font-weight: bold;
+  z-index: 4; /* Higher stacking order to appear above the fill */
+}
+
+.full-label {
+  top: 1px;
+}
+
+.dead-label {
+  bottom: -2px;
+}
+
+.line {
+  position: absolute;
+  width: 100%;
+  border-bottom: 2px solid white;
+  z-index: 2; /* Higher stacking order to appear above the fill */
+}
+
+.dotted-line {
+  position: absolute;
+  width: 100%;
+  border-bottom: 2px dotted white;
+  z-index: 2; /* Higher stacking order to appear above the fill */
+}
+
+.marker {
+  position: absolute;
+  left: 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+  z-index: 3; /* Higher stacking order to appear above the fill */
+}
+
 .button-container {
   display: none; /* Initially hidden */
   margin-top: 10px;
@@ -95,7 +133,24 @@ h2 {
     </div>
     <h2>Health Points</h2>
     <div class="thermometer-container" id="thermometer-container-1">
+      <div class="thermometer-label full-label">Full</div>
       <div class="thermometer-fill" id="thermometer-fill-1" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line" style="bottom: calc(50 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(40 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(30 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(20 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(10 / 60 * 100%);"></div>
+      <div class="marker" style="bottom: calc(50 / 60 * 100%);">50</div>
+      <div class="marker" style="bottom: calc(40 / 60 * 100%);">40</div>
+      <div class="marker" style="bottom: calc(30 / 60 * 100%);">30</div>
+      <div class="marker" style="bottom: calc(20 / 60 * 100%);">20</div>
+      <div class="marker" style="bottom: calc(10 / 60 * 100%);">10</div>
+      <div class="dotted-line" style="bottom: calc(45 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(35 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(25 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(15 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(5 / 60 * 100%);"></div>
     </div>
     <div class="button-container" id="button-container-1">
       <button class="button" onclick="adjustHealth(5, 1)">+</button>
@@ -113,7 +168,24 @@ h2 {
     </div>
     <h2>Health Points</h2>
     <div class="thermometer-container" id="thermometer-container-2">
+      <div class="thermometer-label full-label">Full</div>
       <div class="thermometer-fill" id="thermometer-fill-2" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line" style="bottom: calc(50 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(40 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(30 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(20 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(10 / 60 * 100%);"></div>
+      <div class="marker" style="bottom: calc(50 / 60 * 100%);">50</div>
+      <div class="marker" style="bottom: calc(40 / 60 * 100%);">40</div>
+      <div class="marker" style="bottom: calc(30 / 60 * 100%);">30</div>
+      <div class="marker" style="bottom: calc(20 / 60 * 100%);">20</div>
+      <div class="marker" style="bottom: calc(10 / 60 * 100%);">10</div>
+      <div class="dotted-line" style="bottom: calc(45 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(35 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(25 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(15 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(5 / 60 * 100%);"></div>
     </div>
     <div class="button-container" id="button-container-2">
       <button class="button" onclick="adjustHealth(5, 2)">+</button>
@@ -131,7 +203,24 @@ h2 {
     </div>
     <h2>Health Points</h2>
     <div class="thermometer-container" id="thermometer-container-3">
+      <div class="thermometer-label full-label">Full</div>
       <div class="thermometer-fill" id="thermometer-fill-3" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line" style="bottom: calc(50 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(40 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(30 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(20 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(10 / 60 * 100%);"></div>
+      <div class="marker" style="bottom: calc(50 / 60 * 100%);">50</div>
+      <div class="marker" style="bottom: calc(40 / 60 * 100%);">40</div>
+      <div class="marker" style="bottom: calc(30 / 60 * 100%);">30</div>
+      <div class="marker" style="bottom: calc(20 / 60 * 100%);">20</div>
+      <div class="marker" style="bottom: calc(10 / 60 * 100%);">10</div>
+      <div class="dotted-line" style="bottom: calc(45 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(35 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(25 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(15 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(5 / 60 * 100%);"></div>
     </div>
     <div class="button-container" id="button-container-3">
       <button class="button" onclick="adjustHealth(5, 3)">+</button>
@@ -148,7 +237,24 @@ h2 {
     </div>
     <h2>Health Points</h2>
     <div class="thermometer-container" id="thermometer-container-4">
+      <div class="thermometer-label full-label">Full</div>
       <div class="thermometer-fill" id="thermometer-fill-4" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line" style="bottom: calc(50 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(40 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(30 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(20 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(10 / 60 * 100%);"></div>
+      <div class="marker" style="bottom: calc(50 / 60 * 100%);">50</div>
+      <div class="marker" style="bottom: calc(40 / 60 * 100%);">40</div>
+      <div class="marker" style="bottom: calc(30 / 60 * 100%);">30</div>
+      <div class="marker" style="bottom: calc(20 / 60 * 100%);">20</div>
+      <div class="marker" style="bottom: calc(10 / 60 * 100%);">10</div>
+      <div class="dotted-line" style="bottom: calc(45 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(35 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(25 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(15 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(5 / 60 * 100%);"></div>
     </div>
     <div class="button-container" id="button-container-4">
       <button class="button" onclick="adjustHealth(5, 4)">+</button>
@@ -166,7 +272,24 @@ h2 {
     </div>
     <h2>Health Points</h2>
     <div class="thermometer-container" id="thermometer-container-5">
+      <div class="thermometer-label full-label">Full</div>
       <div class="thermometer-fill" id="thermometer-fill-5" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line" style="bottom: calc(50 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(40 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(30 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(20 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(10 / 60 * 100%);"></div>
+      <div class="marker" style="bottom: calc(50 / 60 * 100%);">50</div>
+      <div class="marker" style="bottom: calc(40 / 60 * 100%);">40</div>
+      <div class="marker" style="bottom: calc(30 / 60 * 100%);">30</div>
+      <div class="marker" style="bottom: calc(20 / 60 * 100%);">20</div>
+      <div class="marker" style="bottom: calc(10 / 60 * 100%);">10</div>
+      <div class="dotted-line" style="bottom: calc(45 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(35 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(25 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(15 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(5 / 60 * 100%);"></div>
     </div>
     <div class="button-container" id="button-container-5">
       <button class="button" onclick="adjustHealth(5, 5)">+</button>
@@ -182,7 +305,24 @@ h2 {
     </div>
     <h2>Health Points</h2>
     <div class="thermometer-container" id="thermometer-container-6">
+      <div class="thermometer-label full-label">Full</div>
       <div class="thermometer-fill" id="thermometer-fill-6" style="height: 100%;"></div>
+      <div class="thermometer-label dead-label">Dead</div>
+      <div class="line" style="bottom: calc(50 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(40 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(30 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(20 / 60 * 100%);"></div>
+      <div class="line" style="bottom: calc(10 / 60 * 100%);"></div>
+      <div class="marker" style="bottom: calc(50 / 60 * 100%);">50</div>
+      <div class="marker" style="bottom: calc(40 / 60 * 100%);">40</div>
+      <div class="marker" style="bottom: calc(30 / 60 * 100%);">30</div>
+      <div class="marker" style="bottom: calc(20 / 60 * 100%);">20</div>
+      <div class="marker" style="bottom: calc(10 / 60 * 100%);">10</div>
+      <div class="dotted-line" style="bottom: calc(45 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(35 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(25 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(15 / 60 * 100%);"></div>
+      <div class="dotted-line" style="bottom: calc(5 / 60 * 100%);"></div>
     </div>
     <div class="button-container" id="button-container-6">
       <button class="button" onclick="adjustHealth(5, 6)">+</button>
